@@ -1,0 +1,208 @@
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Custom marker animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes user-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.1;
+  }
+}
+
+/* Traffic light marker styles */
+.traffic-light-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.user-location-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Popup styles */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+  line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.popup-content {
+  min-width: 180px;
+}
+
+.popup-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.popup-content p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.street-name {
+  font-style: italic;
+  color: #9ca3af;
+  margin-bottom: 8px !important;
+}
+
+.light-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  padding: 6px 8px;
+  background: rgba(243, 244, 246, 0.5);
+  border-radius: 6px;
+}
+
+.status-indicator {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-indicator.red {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.status-indicator.yellow {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.status-indicator.green {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.time-remaining {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.next-phase {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px !important;
+}
+
+.nearest-label {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-top: 8px !important;
+  text-align: center;
+}
+
+/* Leaflet control customizations */
+.leaflet-control-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* Dark mode support for popups */
+@media (prefers-color-scheme: dark) {
+  .leaflet-popup-content-wrapper {
+    background: rgba(31, 41, 55, 0.95);
+    backdrop-filter: blur(10px);
+    border-color: rgba(75, 85, 99, 0.3);
+  }
+
+  .popup-content h4 {
+    color: #f9fafb;
+  }
+
+  .popup-content p {
+    color: #d1d5db;
+  }
+
+  .street-name {
+    color: #9ca3af;
+  }
+
+  .light-status {
+    background: rgba(55, 65, 81, 0.5);
+  }
+
+  .time-remaining {
+    color: #f9fafb;
+  }
+
+  .next-phase {
+    color: #d1d5db;
+  }
+
+  .leaflet-control-attribution {
+    background: rgba(31, 41, 55, 0.8) !important;
+    color: #d1d5db;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .popup-content {
+    min-width: 160px;
+  }
+
+  .popup-content h4 {
+    font-size: 13px;
+  }
+
+  .popup-content p {
+    font-size: 11px;
+  }
+
+  .light-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .time-remaining {
+    font-size: 13px;
+  }
+}
